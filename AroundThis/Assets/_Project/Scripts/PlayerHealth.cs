@@ -7,7 +7,16 @@ namespace _Project.Scripts
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            SceneManager.LoadScene(1);
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+            
+            
         }
     }
 }

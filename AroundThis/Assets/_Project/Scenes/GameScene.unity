@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 641218559}
   - component: {fileID: 641218560}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,10 +960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a878b2980b4894bb07f8f36d6418e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerSpriteRenderer: {fileID: 641218560}
+  spawnerSpriteRenderer: {fileID: 641218560}
   minTime: 1
   maxTime: 2
   enemyPrefab: {fileID: 7550731533876245992, guid: 330f2f60d5ba89a4bb12249a931b85f7, type: 3}
+  bonusPrefab: {fileID: 6054597921791204525, guid: 4ec7bbb99799b124685ee62111b4d969, type: 3}
 --- !u!1 &1371375922
 GameObject:
   m_ObjectHideFlags: 0
