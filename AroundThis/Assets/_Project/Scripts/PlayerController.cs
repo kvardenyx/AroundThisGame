@@ -6,12 +6,14 @@ namespace _Project.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        public ScoreController ScoreController;
+        [SerializeField] private ScoreController ScoreController;
+        
+        [SerializeField] private ScenesManager ScenesManager;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
-                SceneManager.LoadScene(1);
+                ScenesManager.OnLosseScene();
             }
             else
             {

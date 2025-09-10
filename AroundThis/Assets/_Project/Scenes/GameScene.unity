@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreController: {fileID: 960170732}
+  ScenesManager: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
