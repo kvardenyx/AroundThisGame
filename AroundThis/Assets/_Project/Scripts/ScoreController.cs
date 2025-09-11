@@ -14,11 +14,15 @@ namespace _Project.Scripts
             _scoreText = gameObject.GetComponent<Text>();
             
             _scoreText.text = _scoreValue.ToString();
+            
+            PlayerPrefs.SetInt("Score", _scoreValue);
         }
 
         public void AddScore()
         {
             _scoreValue++;
+            
+            PlayerPrefs.SetInt("Score", _scoreValue);
 
             _scoreText.text = _scoreValue.ToString();
         }
