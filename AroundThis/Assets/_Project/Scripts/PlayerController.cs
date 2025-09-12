@@ -1,25 +1,23 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] private ScoreController ScoreController;
+        [SerializeField] private ScoreController scoreController;
         
-        [SerializeField] private ScenesManager ScenesManager;
+        [SerializeField] private ScenesManager scenesManager;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
-                ScenesManager.OnLosseScene();
+                scenesManager.LoadScene("LoseScene");
             }
             else
             {
                 Destroy(other.gameObject);
 
-                ScoreController.AddScore();
+                scoreController.AddScore();
             }
         }
     }

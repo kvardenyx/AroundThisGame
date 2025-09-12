@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 187206923}
   - component: {fileID: 187206924}
   - component: {fileID: 187206925}
+  - component: {fileID: 187206926}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -229,8 +230,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae94205fba6a449f96107801b5cc9830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreController: {fileID: 960170732}
-  ScenesManager: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
+  scoreController: {fileID: 960170732}
+  scenesManager: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
+--- !u!114 &187206926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187206921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8007d41758fc5f74cb9d3b2d10fef8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCenter: {fileID: 1443376349}
+  playerSpeed: 150
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +258,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -369,20 +383,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8007d41758fc5f74cb9d3b2d10fef8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1443376349}
-  playerSpeed: 150
 --- !u!1 &631265134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.5, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 13, z: 1}
+  m_LocalScale: {x: 1, y: 12, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 641218559}
@@ -1055,7 +1055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a878b2980b4894bb07f8f36d6418e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerSpriteRenderer: {fileID: 641218560}
+  spawnerPositon: {fileID: 1279201240}
+  spawnerRange: {x: 0, y: 2}
   minTime: 1
   maxTime: 2
   enemyPrefab: {fileID: 7550731533876245992, guid: 330f2f60d5ba89a4bb12249a931b85f7, type: 3}

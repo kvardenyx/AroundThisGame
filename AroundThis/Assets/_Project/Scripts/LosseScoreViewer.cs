@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace _Project.Scripts
 {
-    public class LosseScoreViewer : MonoBehaviour
+    public class LoseScoreViewer : MonoBehaviour
     {
         private int _score;
 

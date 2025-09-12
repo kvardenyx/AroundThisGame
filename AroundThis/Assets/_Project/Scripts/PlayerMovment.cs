@@ -4,13 +4,10 @@ namespace _Project.Scripts
 {
     public class PlayerMovment : MonoBehaviour
     {
-        public GameObject player;
-        [SerializeField] private float playerSpeed = 150f;
-    
-        private void Start()
-        {
-            Movment();
-        }
+        [SerializeField] private GameObject playerCenter;
+        
+        [SerializeField, Range(100f, 300f)] 
+        private float playerSpeed = 150f;
 
         void Update()
         {
@@ -24,7 +21,7 @@ namespace _Project.Scripts
 
         void Movment()
         {
-            player.transform.Rotate(0f, 0f, playerSpeed * Time.deltaTime);
+            playerCenter.transform.Rotate(0f, 0f, playerSpeed * Time.deltaTime);
         }
     }
 }

@@ -3,18 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
-    public void OnHomeScene()
+    public void LoadScene(string nameScene)
     {
-        SceneManager.LoadScene(0);
-    }
-    
-    public void OnGameScene()
-    {
-        SceneManager.LoadScene(1);
-    }
-    
-    public void OnLosseScene()
-    {
-        SceneManager.LoadScene(2);
+        switch (nameScene)
+        {
+            case "StartScene":
+                SceneManager.LoadScene("StartScene");
+                break;
+            
+            case "GameScene":
+                SceneManager.LoadScene("GameScene"); 
+                break;
+            
+            case "LoseScene":
+                SceneManager.LoadScene("LoseScene");  
+                break;
+        }
     }
 }

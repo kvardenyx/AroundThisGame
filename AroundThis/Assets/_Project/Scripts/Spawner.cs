@@ -1,51 +1,48 @@
 using System.Collections;
 using UnityEngine;
+
 namespace _Project.Scripts
 {
     public class Spawner : MonoBehaviour
     {
-        public SpriteRenderer spawnerSpriteRenderer;
+        [SerializeField] private Transform spawnerPositon;
+        [SerializeField] private Vector2 spawnerRange;
 
-        private float _topDot;
-        private float _bottomDot;
-        private float _randomDot;
+        [SerializeField, Range(0.5f, 2f)] 
+        private float minTime = 1f;
+        [SerializeField, Range(2f, 4f)] 
+        private float maxTime = 2f;
 
-        [SerializeField] private float minTime = 1f;
-        [SerializeField] private float maxTime = 2f;
-
-        public GameObject enemyPrefab;
-        public GameObject bonusPrefab;
+        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject bonusPrefab;
+        
+        private Vector2 _randomPosition;
 
         private void Start()
         {
-            GetDotSpawner();
-            
             StartCoroutine(SpawnEnemyLoop());
             StartCoroutine(SpawnBonusLoop());
-        }
-        
-        private void GetDotSpawner()
-        {
-            _topDot = spawnerSpriteRenderer.bounds.max.y;
-            _bottomDot = spawnerSpriteRenderer.bounds.min.y;
         }
 
         private void SpawnEnemy()
         {
-            _randomDot = Random.Range(_topDot, _bottomDot);
-            Vector2 spawnPos = new Vector2(spawnerSpriteRenderer.transform.position.x, _randomDot);
+            GenerateRandomDot();
             
-            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            Instantiate(enemyPrefab, _randomPosition, Quaternion.identity);
 
         }
         
         private void SpawnBonus()
         {
-            _randomDot = Random.Range(_topDot, _bottomDot);
-            Vector2 spawnPos = new Vector2(spawnerSpriteRenderer.transform.position.x, _randomDot);
+            GenerateRandomDot();
             
-            Instantiate(bonusPrefab, spawnPos, Quaternion.identity);
+            Instantiate(bonusPrefab, _randomPosition, Quaternion.identity);
 
+        }
+
+        private void GenerateRandomDot()
+        {
+            _randomPosition = spawnerPositon.position + new Vector3(0, Random.Range(-spawnerRange.y, spawnerRange.y));
         }
         
         private IEnumerator SpawnEnemyLoop()
@@ -61,7 +58,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 3)));
+                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 2)));
                 SpawnBonus();
             }
         }
