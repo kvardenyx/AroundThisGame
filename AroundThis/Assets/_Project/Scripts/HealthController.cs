@@ -14,8 +14,6 @@ namespace _Project.Scripts
         {
             _healthText = gameObject.GetComponent<Text>();
             
-            Debug.Log(healthValue);
-            
             _healthText.text = "♥ " + healthValue.ToString() + " ♥";
         }
 
