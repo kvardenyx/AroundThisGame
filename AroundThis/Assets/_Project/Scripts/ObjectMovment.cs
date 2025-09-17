@@ -6,8 +6,8 @@ namespace _Project.Scripts
     {
         private Rigidbody2D _rb;
         
-        [SerializeField, Range(2f, 5f)] 
-        private float speed = 3f;
+        [SerializeField, Range(200f, 500f)] 
+        private float speed = 300f;
 
         private void Start()
         {
@@ -16,7 +16,7 @@ namespace _Project.Scripts
 
         private void Update()
         {
-            _rb.linearVelocity = (Vector2.right * speed);
+            _rb.linearVelocity = (Vector2.right * (speed * Time.deltaTime));
         }
     }
 }

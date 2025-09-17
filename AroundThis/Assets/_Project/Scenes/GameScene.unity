@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCenter: {fileID: 1443376349}
-  playerSpeed: 150
+  playerSpeed: 100
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

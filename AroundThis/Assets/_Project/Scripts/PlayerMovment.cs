@@ -6,8 +6,8 @@ namespace _Project.Scripts
     {
         [SerializeField] private GameObject playerCenter;
         
-        [SerializeField, Range(100f, 300f)] 
-        private float playerSpeed = 150f;
+        [SerializeField, Range(100f, 200f)] 
+        private float playerSpeed = 100f;
 
         void Update()
         {
