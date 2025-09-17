@@ -58,7 +58,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 2)));
+                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 5)));
                 SpawnBonus();
             }
         }
