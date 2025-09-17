@@ -25,5 +25,13 @@ namespace _Project.Scripts
 
             _scoreText.text = _scoreValue.ToString();
         }
+
+        public void ChangeRecord()
+        {
+            if (_scoreValue >= PlayerPrefs.GetInt("Record"))
+            {
+                PlayerPrefs.SetInt("Record", _scoreValue);
+            }
+        }
     }
 }

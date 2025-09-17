@@ -7,6 +7,8 @@ namespace _Project.Scripts
     {
         [SerializeField] private ScenesManager scenesManager;
         
+        [SerializeField] private ScoreController scoreController;
+        
         [SerializeField, Range(1, 3)]private int healthValue = 1;
         private Text _healthText;
 
@@ -32,6 +34,8 @@ namespace _Project.Scripts
             
             if (healthValue < 1)
             {
+                scoreController.ChangeRecord();
+                
                 scenesManager.LoadScene("LoseScene");
             }
         }

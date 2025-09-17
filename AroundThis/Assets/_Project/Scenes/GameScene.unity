@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesManager: {fileID: 9145024397662211653, guid: 26e6ac69de47b5048924b6e3aa225fe4, type: 3}
+  scoreController: {fileID: 960170732}
   healthValue: 1
 --- !u!1 &1825098837
 GameObject:
