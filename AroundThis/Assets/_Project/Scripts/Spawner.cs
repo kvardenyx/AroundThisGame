@@ -8,20 +8,48 @@ namespace _Project.Scripts
         [SerializeField] private Transform spawnerPositon;
         [SerializeField] private Vector2 spawnerRange;
 
-        [SerializeField, Range(0.5f, 2f)] 
-        private float minTime = 1f;
-        [SerializeField, Range(2f, 4f)] 
-        private float maxTime = 2f;
+        [SerializeField, Range(1f, 3f)] 
+        private float minTime = 3f;
+        [SerializeField, Range(2f, 5f)] 
+        private float maxTime = 5f;
+        [SerializeField, Range(200f, 500f)] 
+        private float speed = 200f;
 
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject bonusPrefab;
         
         private Vector2 _randomPosition;
+        
+        [SerializeField] private ScoreController scoreController;
 
         private void Start()
         {
             StartCoroutine(SpawnEnemyLoop());
             StartCoroutine(SpawnBonusLoop());
+            
+            scoreController.PowerUp += LowerRespawnTime;
+            scoreController.PowerUp += UpperEnemySpeed;
+        }
+
+        private void LowerRespawnTime()
+        {
+            if (minTime > 1)
+            {
+                minTime -= 0.1f;
+            }
+            
+            if (maxTime > 2)
+            {
+                maxTime -= 0.1f;
+            }
+        }
+        
+        private void UpperEnemySpeed()
+        {
+            if (speed < 500f)
+            {
+                speed += 20f;
+            }
         }
 
         private void SpawnEnemy()
@@ -29,6 +57,9 @@ namespace _Project.Scripts
             GenerateRandomDot();
             
             Instantiate(enemyPrefab, _randomPosition, Quaternion.identity);
+            
+            ObjectMovment objectMovment = enemyPrefab.GetComponent<ObjectMovment>();
+            objectMovment.speed = speed;
 
         }
         
@@ -37,6 +68,9 @@ namespace _Project.Scripts
             GenerateRandomDot();
             
             Instantiate(bonusPrefab, _randomPosition, Quaternion.identity);
+            
+            ObjectMovment objectMovment = bonusPrefab.GetComponent<ObjectMovment>();
+            objectMovment.speed = speed;
 
         }
 
@@ -58,7 +92,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 5)));
+                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 3)));
                 SpawnBonus();
             }
         }

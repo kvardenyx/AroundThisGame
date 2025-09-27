@@ -1,4 +1,7 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Project.Scripts
@@ -7,6 +10,8 @@ namespace _Project.Scripts
     {
         private int _scoreValue = 0;
         private Text _scoreText;
+
+        public Action PowerUp;
 
         private void Start()
         {
@@ -24,6 +29,11 @@ namespace _Project.Scripts
             PlayerPrefs.SetInt("Score", _scoreValue);
 
             _scoreText.text = _scoreValue.ToString();
+            
+            if (_scoreValue % 10 == 0)
+            {
+                PowerUp?.Invoke();
+            }
         }
 
         public void ChangeRecord()

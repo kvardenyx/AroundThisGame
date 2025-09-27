@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Project.Scripts
@@ -6,8 +8,7 @@ namespace _Project.Scripts
     {
         private Rigidbody2D _rb;
         
-        [SerializeField, Range(200f, 500f)] 
-        private float speed = 300f;
+        public float speed;
 
         private void Start()
         {

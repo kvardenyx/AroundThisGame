@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Project.Scripts
@@ -8,6 +9,13 @@ namespace _Project.Scripts
         
         [SerializeField, Range(100f, 200f)] 
         private float playerSpeed = 100f;
+        
+        [SerializeField] private ScoreController scoreController;
+
+        private void Start()
+        {
+            scoreController.PowerUp += AddPlayerSpeed;
+        }
 
         void Update()
         {
@@ -16,6 +24,18 @@ namespace _Project.Scripts
             if (Input.GetMouseButtonDown(0))
             {
                 playerSpeed = -playerSpeed;
+            }
+        }
+
+        void AddPlayerSpeed()
+        {
+            if (playerSpeed < 0)
+            {
+                playerSpeed -= 5f;
+            } 
+            else if (playerSpeed > 0 && playerSpeed < 200)
+            {
+                playerSpeed += 5f;
             }
         }
 
