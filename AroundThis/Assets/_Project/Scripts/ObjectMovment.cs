@@ -8,7 +8,8 @@ namespace _Project.Scripts
     {
         private Rigidbody2D _rb;
         
-        public float speed;
+        [SerializeField, Range(200f, 500f)] 
+        private float speed = 200f;
 
         private void Start()
         {

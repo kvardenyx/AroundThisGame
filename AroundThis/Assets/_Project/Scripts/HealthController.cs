@@ -16,21 +16,21 @@ namespace _Project.Scripts
         {
             _healthText = gameObject.GetComponent<Text>();
             
-            _healthText.text = "♥ " + healthValue.ToString() + " ♥";
+            _healthText.text =healthValue.ToString();
         }
 
         public void AddHealth()
         {
             healthValue++;
             
-            _healthText.text = "♥ " + healthValue.ToString() + " ♥";
+            _healthText.text =healthValue.ToString();
         }
 
         public void RemoveHealth()
         {
             healthValue--;
             
-            _healthText.text = "♥ " + healthValue.ToString() + " ♥";
+            _healthText.text =healthValue.ToString();
             
             if (healthValue < 1)
             {

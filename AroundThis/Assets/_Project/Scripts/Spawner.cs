@@ -12,8 +12,6 @@ namespace _Project.Scripts
         private float minTime = 3f;
         [SerializeField, Range(2f, 5f)] 
         private float maxTime = 5f;
-        [SerializeField, Range(200f, 500f)] 
-        private float speed = 200f;
 
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private GameObject bonusPrefab;
@@ -28,7 +26,6 @@ namespace _Project.Scripts
             StartCoroutine(SpawnBonusLoop());
             
             scoreController.PowerUp += LowerRespawnTime;
-            scoreController.PowerUp += UpperEnemySpeed;
         }
 
         private void LowerRespawnTime()
@@ -43,24 +40,12 @@ namespace _Project.Scripts
                 maxTime -= 0.1f;
             }
         }
-        
-        private void UpperEnemySpeed()
-        {
-            if (speed < 500f)
-            {
-                speed += 20f;
-            }
-        }
 
         private void SpawnEnemy()
         {
             GenerateRandomDot();
             
             Instantiate(enemyPrefab, _randomPosition, Quaternion.identity);
-            
-            ObjectMovment objectMovment = enemyPrefab.GetComponent<ObjectMovment>();
-            objectMovment.speed = speed;
-
         }
         
         private void SpawnBonus()
@@ -68,10 +53,6 @@ namespace _Project.Scripts
             GenerateRandomDot();
             
             Instantiate(bonusPrefab, _randomPosition, Quaternion.identity);
-            
-            ObjectMovment objectMovment = bonusPrefab.GetComponent<ObjectMovment>();
-            objectMovment.speed = speed;
-
         }
 
         private void GenerateRandomDot()
