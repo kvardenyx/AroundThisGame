@@ -6,6 +6,7 @@ namespace _Project.Scripts
     public class PlayerMovment : MonoBehaviour
     {
         [SerializeField] private GameObject playerCenter;
+        [SerializeField] private SpriteRenderer playerSprite;
         
         [SerializeField, Range(100f, 200f)] 
         private float playerSpeed = 100f;
@@ -23,6 +24,8 @@ namespace _Project.Scripts
 
             if (Input.GetMouseButtonDown(0))
             {
+                playerSprite.flipY = !playerSprite.flipY;
+                
                 playerSpeed = -playerSpeed;
             }
         }
