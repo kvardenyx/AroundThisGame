@@ -73,7 +73,7 @@ namespace _Project.Scripts
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minTime, (maxTime * 3)));
+                yield return new WaitForSeconds(Random.Range((minTime * 3), (maxTime * 3)));
                 SpawnBonus();
             }
         }
