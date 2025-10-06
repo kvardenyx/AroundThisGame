@@ -8,17 +8,17 @@ namespace _Project.Scripts
     {
         private Rigidbody2D _rb;
         
-        [SerializeField, Range(200f, 500f)] 
-        private float speed = 200f;
+        [SerializeField, Range(50f, 150f)] 
+        private float speed = 100f;
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            _rb.linearVelocity = (Vector2.right * (speed * Time.deltaTime));
+            _rb.linearVelocity = Vector2.right * (speed * Time.fixedDeltaTime);
         }
     }
 }

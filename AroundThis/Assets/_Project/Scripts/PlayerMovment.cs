@@ -7,9 +7,11 @@ namespace _Project.Scripts
     {
         [SerializeField] private GameObject playerCenter;
         [SerializeField] private SpriteRenderer playerSprite;
+
+        [SerializeField] private Rigidbody2D _rb;
         
-        [SerializeField, Range(100f, 200f)] 
-        private float playerSpeed = 100f;
+        [SerializeField, Range(100f, 250f)] 
+        private float playerSpeed = 150f;
         
         [SerializeField] private ScoreController scoreController;
 
@@ -20,14 +22,17 @@ namespace _Project.Scripts
 
         void Update()
         {
-            Movment();
-
             if (Input.GetMouseButtonDown(0))
             {
                 playerSprite.flipY = !playerSprite.flipY;
                 
                 playerSpeed = -playerSpeed;
             }
+        }
+
+        private void FixedUpdate()
+        {
+            Movment();
         }
 
         void AddPlayerSpeed()
@@ -44,7 +49,7 @@ namespace _Project.Scripts
 
         void Movment()
         {
-            playerCenter.transform.Rotate(0f, 0f, playerSpeed * Time.deltaTime);
+            _rb.angularVelocity = playerSpeed;
         }
     }
 }
